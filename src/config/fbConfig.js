@@ -1,7 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
-import { initializeApp } from "firebase/app";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 // import { getAnalytics } from "firebase/analytics";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -19,9 +18,7 @@ const firebaseConfig = {
   measurementId: "G-V1VZH126JD"
 };
 
-// Initialize Firebase
-const fbApp = initializeApp(firebaseConfig);
-fbApp.firestore().settings({ timestampsInSnapshots: true })
-// const analytics = getAnalytics(fbApp);
+firebase.initializeApp(firebaseConfig);
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
-export default fbApp;
+export default firebase;
